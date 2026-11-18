@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Neighbourhood Social</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f7f2;
+      color: #20352b;
+    }
+    header {
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #20352b;
+      color: white;
+    }
+    .logo { font-weight: bold; letter-spacing: 1px; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+    .hero {
+      background: #20352b;
+      color: white;
+      padding: 90px 8%;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      margin: 10px 0;
+    }
+    .hero p { font-size: 18px; color: #e1e8df; }
+    .btn {
+      display: inline-block;
+      background: #e8c76e;
+      color: #20352b;
+      padding: 14px 24px;
+      margin-top: 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section { padding: 55px 8%; }
+    .chapters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .chapter {
+      background: white;
+      padding: 24px;
+      border-radius: 10px;
+      border: 1px solid #e5e3dc;
+    }
+    .chapter h3 { margin-top: 0; }
+    .chapter a {
+      color: #486b52;
+      font-weight: bold;
+    }
+    footer {
+      background: #20352b;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">THE NEIGHBOURHOOD SOCIAL</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#chapters">Chapters</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <p>MEET · PLAY · CONNECT</p>
+  <h1>Your Saturday.<br>Your people.</h1>
+  <p>Discover your neighbourhood. Meet new people.<br>
+  Make your Saturdays more interesting.</p>
+  <a class="btn" href="#chapters">Find Your Neighbourhood</a>
+</div>
+
+<section id="about">
+  <h2>More than just a Saturday plan.</h2>
+  <p>
+    The Neighbourhood Social is a community built around
+    bringing people together through local activities,
+    shared interests and new connections.
+  </p>
+  <p>Different activities. Different neighbourhoods.
+  One community.</p>
+</section>
+
+<section id="chapters">
+  <h2>Find Your Chapter</h2>
+  <p>Join the community in your neighbourhood.</p>
+
+  <div class="chapters">
+    <div class="chapter">
+      <h3>Westlands</h3>
+      <p>Meet your local community.</p>
+      <a href="#">Join WhatsApp Group</a>
+    </div>
+    <div class="chapter">
+      <h3>Kilimani</h3>
+      <p>Meet your local community.</p>
+      <a href="#">Join WhatsApp Group</a>
+    </div>
+    <div class="chapter">
+      <h3>Rongai</h3>
+      <p>Meet your local community.</p>
+      <a href="#">Join WhatsApp Group</a>
+    </div>
+    <div class="chapter">
+      <h3>Karen</h3>
+      <p>Meet your local community.</p>
+      <a href="#">Join WhatsApp Group</a>
+    </div>
+    <div class="chapter">
+      <h3>CBD</h3>
+      <p>Meet your local community.</p>
+      <a href="#">Join WhatsApp Group</a>
+    </div>
+    <div class="chapter">
+      <h3>Lavington</h3>
+      <p>Meet your local community.</p>
+      <a href="#">Join WhatsApp Group</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h3>THE NEIGHBOURHOOD SOCIAL</h3>
+  <p>Your Saturday. Your people.</p>
+  <p>© 2026 The Neighbourhood Social</p>
+</footer>
+
+</body>
+</html>
