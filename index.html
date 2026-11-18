@@ -2,150 +2,528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Neighbourhood Social</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f7f2;
-      color: #20352b;
-    }
-    header {
-      padding: 22px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #20352b;
-      color: white;
-    }
-    .logo { font-weight: bold; letter-spacing: 1px; }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 18px;
-      font-size: 14px;
-    }
-    .hero {
-      background: #20352b;
-      color: white;
-      padding: 90px 8%;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: clamp(38px, 7vw, 68px);
-      margin: 10px 0;
-    }
-    .hero p { font-size: 18px; color: #e1e8df; }
-    .btn {
-      display: inline-block;
-      background: #e8c76e;
-      color: #20352b;
-      padding: 14px 24px;
-      margin-top: 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section { padding: 55px 8%; }
-    .chapters {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-    }
-    .chapter {
-      background: white;
-      padding: 24px;
-      border-radius: 10px;
-      border: 1px solid #e5e3dc;
-    }
-    .chapter h3 { margin-top: 0; }
-    .chapter a {
-      color: #486b52;
-      font-weight: bold;
-    }
-    footer {
-      background: #20352b;
-      color: white;
-      padding: 30px;
-      text-align: center;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Neighbourhood Social — Your Saturday. Your people. Find your local community in Nairobi.">
+<title>The Neighbourhood Social | Your Saturday. Your People.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green:#20382e;
+  --deep:#172b23;
+  --cream:#f8f6ef;
+  --gold:#e8c76e;
+  --white:#fff;
+  --muted:#777d75;
+  --line:#e8e5dc;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--green);
+  line-height:1.65;
+}
+a {text-decoration:none;color:inherit}
+button {font-family:inherit;cursor:pointer}
+.container {width:min(1140px,90%);margin:auto}
+.eyebrow {
+  font-size:11px;font-weight:800;letter-spacing:2px;
+  text-transform:uppercase;color:#a17d2c;
+}
+h1,h2,h3 {line-height:1.15}
+h1,h2 {font-family:'Playfair Display',serif}
+h2 {font-size:clamp(32px,5vw,48px)}
+.section {padding:85px 0}
+.section-intro {max-width:620px;margin:14px 0 35px;color:var(--muted)}
+.btn {
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border-radius:5px;font-size:13px;
+  font-weight:800;transition:.2s;border:1px solid transparent;
+}
+.btn:hover {transform:translateY(-2px)}
+.btn-gold {background:var(--gold);color:var(--deep)}
+.btn-outline {border-color:rgba(255,255,255,.6);color:white}
+.btn-green {background:var(--green);color:white}
+nav {
+  background:var(--green);color:white;padding:18px 0;
+  position:sticky;top:0;z-index:100;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.nav-inner {display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo {font-weight:800;font-size:16px;letter-spacing:1px}
+.logo span {color:var(--gold)}
+.nav-links {display:flex;gap:25px;align-items:center;font-size:12px;font-weight:700}
+.nav-links a:hover {color:var(--gold)}
+.menu-toggle {display:none;background:none;border:0;color:white;font-size:25px}
+.hero {
+  background:var(--green);color:white;
+  padding:100px 0 110px;position:relative;overflow:hidden;
+}
+.hero:after {
+  content:"";position:absolute;width:430px;height:430px;
+  border:1px solid rgba(232,199,110,.22);border-radius:50%;
+  right:-100px;top:10px;
+  box-shadow:0 0 0 40px rgba(232,199,110,.035),
+             0 0 0 85px rgba(232,199,110,.025);
+}
+.hero-content {position:relative;z-index:2;max-width:720px}
+.hero .eyebrow {color:var(--gold)}
+.hero h1 {font-size:clamp(48px,8vw,82px);margin:20px 0;letter-spacing:-2px}
+.hero h1 span {color:var(--gold);font-style:italic}
+.hero p {max-width:530px;color:#d7ded7;font-size:16px;margin-bottom:30px}
+.hero-actions {display:flex;gap:12px;flex-wrap:wrap}
+.hero-note {margin-top:45px;color:#c2cec4;font-size:12px}
+.hero-note strong {color:var(--gold)}
+.intro-grid {display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.intro-card {
+  background:#eeeade;padding:35px;border-radius:8px;
+  border-left:4px solid var(--gold);
+}
+.intro-card p {font-size:14px;color:#626b62}
+.intro-card strong {color:var(--green)}
+.pillars {
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+.pillar {
+  background:white;border:1px solid var(--line);padding:25px;
+  border-radius:7px;transition:.2s;
+}
+.pillar:hover {transform:translateY(-4px);border-color:var(--gold)}
+.pillar .emoji {font-size:27px;margin-bottom:12px}
+.pillar h3 {font-size:17px;margin-bottom:8px}
+.pillar p {font-size:12px;color:var(--muted)}
+.dark-section {background:var(--green);color:white}
+.dark-section .section-intro {color:#c4cec5}
+.dark-section .eyebrow {color:var(--gold)}
+.chapters-top {
+  display:flex;justify-content:space-between;align-items:end;
+  gap:20px;flex-wrap:wrap;
+}
+.search-box {
+  width:min(320px,100%);padding:13px 15px;
+  border:1px solid var(--line);border-radius:5px;
+  font:inherit;font-size:13px;background:white;color:var(--green);
+  outline:none;
+}
+.search-box:focus {border-color:#b99b4d}
+.chapter-count {font-size:12px;color:#c5d0c7;margin:15px 0 22px}
+.chapter-grid {
+  display:grid;grid-template-columns:repeat(4,1fr);gap:13px;
+}
+.chapter {
+  background:#294438;border:1px solid rgba(255,255,255,.12);
+  padding:19px;border-radius:6px;display:flex;
+  flex-direction:column;justify-content:space-between;min-height:135px;
+  transition:.2s;
+}
+.chapter:hover {background:#344f41;transform:translateY(-3px)}
+.chapter h3 {font-size:15px;margin-bottom:8px}
+.chapter p {font-size:11px;color:#bdcbbf}
+.chapter-status {
+  display:inline-block;margin-top:15px;font-size:10px;
+  color:var(--gold);font-weight:800;letter-spacing:.6px;
+}
+.no-results {padding:25px;color:#d0d8d0;display:none}
+.how-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.step-number {
+  font-family:'Playfair Display',serif;color:#c3a24e;
+  font-size:38px;margin-bottom:10px;
+}
+.step h3 {font-size:17px;margin-bottom:8px}
+.step p {font-size:13px;color:var(--muted)}
+.moderator {
+  background:#eeeade;padding:65px 0;
+}
+.moderator-grid {display:grid;grid-template-columns:1.2fr .8fr;gap:45px;align-items:center}
+.moderator-box {
+  background:var(--green);color:white;padding:32px;border-radius:8px;
+}
+.moderator-box h3 {font-family:'Playfair Display',serif;font-size:25px;margin-bottom:15px}
+.moderator-box p {color:#d3ddd4;font-size:13px;margin-bottom:20px}
+.moderator ul {list-style:none;margin:20px 0}
+.moderator li {font-size:13px;margin:11px 0;color:#626b62}
+.moderator li:before {content:"✓";color:#a17d2c;font-weight:800;margin-right:10px}
+.faq-list {max-width:800px}
+.faq-item {border-bottom:1px solid var(--line);padding:19px 0}
+.faq-question {
+  width:100%;display:flex;justify-content:space-between;gap:20px;
+  background:none;border:0;text-align:left;color:var(--green);
+  font-weight:800;font-size:14px;padding:5px 0;
+}
+.faq-question span {font-size:20px;color:#aa8a3e}
+.faq-answer {display:none;color:var(--muted);font-size:13px;padding:12px 30px 0 0}
+.faq-item.active .faq-answer {display:block}
+.faq-item.active .faq-question span {transform:rotate(45deg)}
+.cta {
+  background:var(--gold);color:var(--deep);padding:65px 0;text-align:center;
+}
+.cta h2 {margin:12px 0}
+.cta p {font-size:14px;margin:0 auto 25px;max-width:500px}
+.cta .btn {background:var(--green);color:white}
+footer {background:var(--deep);color:white;padding:50px 0 25px}
+.footer-grid {display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px}
+footer h3 {font-size:15px;margin-bottom:15px}
+footer p,footer a {font-size:12px;color:#bdc9bf}
+footer a:hover {color:var(--gold)}
+.footer-links {display:flex;flex-direction:column;gap:9px}
+.footer-bottom {
+  border-top:1px solid rgba(255,255,255,.13);
+  margin-top:35px;padding-top:20px;color:#94a297;
+  font-size:11px;display:flex;justify-content:space-between;gap:15px;
+  flex-wrap:wrap;
+}
+@media(max-width:800px) {
+  .nav-links {display:none;position:absolute;top:65px;left:0;right:0;
+    background:var(--deep);padding:25px;flex-direction:column;align-items:flex-start}
+  .nav-links.open {display:flex}
+  .menu-toggle {display:block}
+  .intro-grid,.moderator-grid {grid-template-columns:1fr}
+  .chapter-grid {grid-template-columns:repeat(2,1fr)}
+  .pillars {grid-template-columns:repeat(2,1fr)}
+  .how-grid {grid-template-columns:1fr}
+  .footer-grid {grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px) {
+  .hero {padding:75px 0}
+  .section {padding:65px 0}
+  .chapter-grid {grid-template-columns:repeat(2,1fr);gap:9px}
+  .chapter {padding:14px;min-height:125px}
+  .chapter h3 {font-size:13px}
+  .pillars {grid-template-columns:1fr 1fr;gap:10px}
+  .pillar {padding:17px}
+  .footer-grid {grid-template-columns:1fr}
+}
+</style>
 </head>
+
 <body>
 
-<header>
-  <div class="logo">THE NEIGHBOURHOOD SOCIAL</div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#chapters">Chapters</a>
-  </nav>
+<nav>
+ <div class="container nav-inner">
+  <a href="#" class="logo">THE <span>NEIGHBOURHOOD</span> SOCIAL.</a>
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+  <div class="nav-links" id="navLinks">
+   <a href="#about">ABOUT</a>
+   <a href="#activities">ACTIVITIES</a>
+   <a href="#chapters">CHAPTERS</a>
+   <a href="#faq">FAQs</a>
+   <a href="#moderators" class="btn btn-gold">BECOME A MODERATOR</a>
+  </div>
+ </div>
+</nav>
+
+<header class="hero">
+ <div class="container hero-content">
+  <div class="eyebrow">MEET · PLAY · CONNECT</div>
+  <h1>Your Saturday.<br><span>Your people.</span></h1>
+  <p>
+   Good people. New experiences. A little more life outside your usual routine.
+   Find your neighbourhood, join the community and make your Saturdays count.
+  </p>
+  <div class="hero-actions">
+   <a href="#chapters" class="btn btn-gold">FIND YOUR CHAPTER ↗</a>
+   <a href="#about" class="btn btn-outline">GET TO KNOW US</a>
+  </div>
+  <div class="hero-note">
+   <strong>18+ COMMUNITY</strong> &nbsp;·&nbsp; NAIROBI, KENYA
+  </div>
+ </div>
 </header>
 
-<div class="hero">
-  <p>MEET · PLAY · CONNECT</p>
-  <h1>Your Saturday.<br>Your people.</h1>
-  <p>Discover your neighbourhood. Meet new people.<br>
-  Make your Saturdays more interesting.</p>
-  <a class="btn" href="#chapters">Find Your Neighbourhood</a>
-</div>
-
-<section id="about">
-  <h2>More than just a Saturday plan.</h2>
-  <p>
-    The Neighbourhood Social is a community built around
-    bringing people together through local activities,
-    shared interests and new connections.
-  </p>
-  <p>Different activities. Different neighbourhoods.
-  One community.</p>
+<section class="section" id="about">
+ <div class="container intro-grid">
+  <div>
+   <div class="eyebrow">A CLUB FOR EVERYONE</div>
+   <h2>Life is better<br>when we do it together.</h2>
+   <p class="section-intro">
+    The Neighbourhood Social is a community-led social club bringing people
+    together through simple, fun and meaningful Saturday experiences.
+   </p>
+   <p style="font-size:13px;color:#777d75">
+    Whether you are new to an area, looking to meet new people, or simply
+    want to do something different with your weekend, there is a place for you here.
+   </p>
+  </div>
+  <div class="intro-card">
+   <div class="eyebrow">THE TNS IDEA</div>
+   <h3 style="font-family:'Playfair Display';font-size:27px;margin:12px 0">
+    Your local community. Your kind of weekend.
+   </h3>
+   <p>
+    We organise neighbourhood-based chapters so that meeting people
+    and finding something to do doesn't have to mean travelling across the city.
+    Join your local WhatsApp group, meet your neighbours and show up.
+    <br><br><strong>Come as you are. Find your people.</strong>
+   </p>
+  </div>
+ </div>
 </section>
 
-<section id="chapters">
-  <h2>Find Your Chapter</h2>
-  <p>Join the community in your neighbourhood.</p>
+<section class="section" id="activities" style="background:#f0eee5">
+ <div class="container">
+  <div class="eyebrow">SOMETHING DIFFERENT EVERY SATURDAY</div>
+  <h2>There is more than one<br>way to spend a Saturday.</h2>
+  <p class="section-intro">
+   Our chapters host different activities throughout the month.
+   There is always room to try something new.
+  </p>
 
-  <div class="chapters">
-    <div class="chapter">
-      <h3>Westlands</h3>
-      <p>Meet your local community.</p>
-      <a href="#">Join WhatsApp Group</a>
-    </div>
-    <div class="chapter">
-      <h3>Kilimani</h3>
-      <p>Meet your local community.</p>
-      <a href="#">Join WhatsApp Group</a>
-    </div>
-    <div class="chapter">
-      <h3>Rongai</h3>
-      <p>Meet your local community.</p>
-      <a href="#">Join WhatsApp Group</a>
-    </div>
-    <div class="chapter">
-      <h3>Karen</h3>
-      <p>Meet your local community.</p>
-      <a href="#">Join WhatsApp Group</a>
-    </div>
-    <div class="chapter">
-      <h3>CBD</h3>
-      <p>Meet your local community.</p>
-      <a href="#">Join WhatsApp Group</a>
-    </div>
-    <div class="chapter">
-      <h3>Lavington</h3>
-      <p>Meet your local community.</p>
-      <a href="#">Join WhatsApp Group</a>
-    </div>
+  <div class="pillars">
+   <div class="pillar"><div class="emoji">🚶</div><h3>Move</h3><p>Neighbourhood walks, beginner-friendly runs, cycling and nature trails.</p></div>
+   <div class="pillar"><div class="emoji">🎲</div><h3>Play</h3><p>Board games, trivia, puzzles, card games and friendly challenges.</p></div>
+   <div class="pillar"><div class="emoji">🌱</div><h3>Give Back</h3><p>Community clean-ups, tree planting and neighbourhood volunteering.</p></div>
+   <div class="pillar"><div class="emoji">☕</div><h3>Socialise</h3><p>Café meetups, brunch, dinner gatherings and conversations.</p></div>
+   <div class="pillar"><div class="emoji">🧭</div><h3>Explore</h3><p>Picnics, markets, museums and discovering interesting local places.</p></div>
+   <div class="pillar"><div class="emoji">🎨</div><h3>Create</h3><p>Crafts, photography walks, book swaps and creative workshops.</p></div>
   </div>
+ </div>
+</section>
+
+<section class="section dark-section" id="chapters">
+ <div class="container">
+  <div class="chapters-top">
+   <div>
+    <div class="eyebrow">FIND YOUR PEOPLE</div>
+    <h2>30 neighbourhoods.<br>One social club.</h2>
+   </div>
+   <input type="search" class="search-box" id="chapterSearch"
+    placeholder="Search your neighbourhood..." oninput="filterChapters()"
+    aria-label="Search neighbourhoods">
+  </div>
+  <p class="section-intro">
+   Find the chapter closest to you. Join its free WhatsApp community
+   and stay updated on local activities and meetups.
+  </p>
+
+  <div class="chapter-count" id="chapterCount">30 proposed Nairobi chapters</div>
+
+  <div class="chapter-grid" id="chapterGrid">
+
+   <div class="chapter"><div><h3>Westlands</h3><p>Westlands & surrounding areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Kilimani</h3><p>Kilimani & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Nairobi CBD</h3><p>Central Business District</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Ngong Road</h3><p>Ngong Road corridor</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Rongai</h3><p>Ongata Rongai & surroundings</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Karen</h3><p>Karen & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Kasarani</h3><p>Kasarani & surroundings</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Ruaka</h3><p>Ruaka & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Lavington</h3><p>Lavington & surrounding areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>South B</h3><p>South B & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Parklands</h3><p>Parklands & surroundings</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>South C</h3><p>South C & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Donholm</h3><p>Donholm & surroundings</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Buruburu</h3><p>Buruburu & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Umoja</h3><p>Umoja & surroundings</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Embakasi</h3><p>Embakasi & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Lang'ata</h3><p>Lang'ata & surroundings</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Upper Hill</h3><p>Upper Hill & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Roysambu</h3><p>Roysambu & surroundings</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Kahawa</h3><p>Kahawa & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Runda</h3><p>Runda & surrounding areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Ridgeways</h3><p>Ridgeways & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Hurlingham</h3><p>Hurlingham & surroundings</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Ngara</h3><p>Ngara & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Pangani</h3><p>Pangani & surroundings</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Syokimau</h3><p>Syokimau & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Thika Road</h3><p>Thika Road corridor</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Kileleshwa</h3><p>Kileleshwa & surroundings</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Muthaiga</h3><p>Muthaiga & nearby areas</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+   <div class="chapter"><div><h3>Kitengela</h3><p>Kitengela & surroundings</p></div><span class="chapter-status">● CHAPTER COMMUNITY</span></div>
+
+  </div>
+  <div class="no-results" id="noResults">No neighbourhood found. Try another search.</div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="container">
+  <div class="eyebrow">GETTING STARTED IS EASY</div>
+  <h2>Three steps to finding<br>your people.</h2>
+  <p class="section-intro">You don't need to know anyone already. That's the whole point.</p>
+  <div class="how-grid">
+   <div class="step"><div class="step-number">01</div><h3>Find your chapter</h3><p>Choose the neighbourhood closest to where you live or spend most of your time.</p></div>
+   <div class="step"><div class="step-number">02</div><h3>Join the community</h3><p>Join your free chapter WhatsApp group and get to know the people around you.</p></div>
+   <div class="step"><div class="step-number">03</div><h3>Show up!</h3><p>Discover Saturday activities, RSVP for the ones you like and come meet your people.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="moderator" id="moderators">
+ <div class="container moderator-grid">
+  <div>
+   <div class="eyebrow">HELP BUILD YOUR COMMUNITY</div>
+   <h2>Be the reason<br>people come together.</h2>
+   <p class="section-intro">
+    We're looking for friendly, reliable and community-minded people
+    to lead our neighbourhood chapters.
+   </p>
+   <ul>
+    <li>Welcome new members and help build the local community.</li>
+    <li>Coordinate and host Saturday activities.</li>
+    <li>Connect with local venues and activity partners.</li>
+    <li>Help create a safe, welcoming and inclusive environment.</li>
+    <li>Earn a share of ticket revenue from the activities you host.</li>
+   </ul>
+   <p style="font-size:12px;color:#777d75">
+    You don't need event-management experience. Initiative, reliability
+    and a genuine interest in bringing people together matter most.
+    Moderator roles are subject to selection and onboarding.
+   </p>
+  </div>
+  <div class="moderator-box">
+   <div class="eyebrow">CALLING COMMUNITY BUILDERS</div>
+   <h3>Become a Chapter Moderator.</h3>
+   <p>
+    Interested in leading your neighbourhood chapter?
+    Tell us a little about yourself, your location and why you'd like to join.
+   </p>
+   <a class="btn btn-gold" href="YOUR_GOOGLE_FORM_LINK" target="_blank" rel="noopener">
+    APPLY TO BE A MODERATOR ↗
+   </a>
+   <p style="font-size:10px;margin-top:18px;margin-bottom:0">
+    Applications are reviewed by The Neighbourhood Social team.
+   </p>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="faq">
+ <div class="container">
+  <div class="eyebrow">GOOD QUESTIONS</div>
+  <h2>Frequently asked questions.</h2>
+  <p class="section-intro">A few things you might want to know before joining us.</p>
+
+  <div class="faq-list">
+   <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">What exactly is The Neighbourhood Social?<span>+</span></button>
+    <div class="faq-answer">TNS is a neighbourhood-based social club that brings adults together through activities, meetups and shared experiences. We have local chapters so people can connect closer to home.</div>
+   </div>
+   <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">Who can join?<span>+</span></button>
+    <div class="faq-answer">Anyone aged 18 or older who is interested in meeting people, exploring their neighbourhood and taking part in community activities.</div>
+   </div>
+   <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">Is membership free?<span>+</span></button>
+    <div class="faq-answer">Yes. Joining a neighbourhood WhatsApp community is free. Individual activities may have a participation fee, which will be communicated before you book.</div>
+   </div>
+   <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">How much do activities cost?<span>+</span></button>
+    <div class="faq-answer">Ordinary activities are planned from KES 100 per person. Special activities, workshops or outings may have different prices. Any additional costs will be clearly communicated before booking.</div>
+   </div>
+   <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">Do I have to attend every Saturday?<span>+</span></button>
+    <div class="faq-answer">Not at all. Participate whenever an activity interests you. There is no compulsory attendance or minimum number of events.</div>
+   </div>
+   <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">Can I join a chapter outside my neighbourhood?<span>+</span></button>
+    <div class="faq-answer">Yes. You can join other chapters if their activities or locations work better for you. We recommend starting with the chapter closest to you.</div>
+   </div>
+   <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">What happens at a typical meetup?<span>+</span></button>
+    <div class="faq-answer">It depends on the activity. It could be a walk, a game afternoon, a café meetup, a clean-up or a creative workshop. Each event announcement will explain what to expect, where to meet and any costs.</div>
+   </div>
+   <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">Do I need to come with friends?<span>+</span></button>
+    <div class="faq-answer">No. Many people join to meet new people. You are welcome to come on your own. Our moderators help welcome participants and introduce people.</div>
+   </div>
+   <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">Are food, drinks and transport included in the ticket?<span>+</span></button>
+    <div class="faq-answer">Unless an event announcement specifically says otherwise, food, drinks and personal transport are separate. Check the event details before booking.</div>
+   </div>
+   <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">How do I become a chapter moderator?<span>+</span></button>
+    <div class="faq-answer">Complete the moderator application form on this website. The team will review applications and contact shortlisted applicants about the next steps.</div>
+   </div>
+   <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">Is the WhatsApp group private?<span>+</span></button>
+    <div class="faq-answer">WhatsApp groups can show your phone number to other group members. Please consider this before joining. We ask all members to respect one another's privacy and never share another member's information without consent.</div>
+   </div>
+   <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">What if I have a concern during an activity?<span>+</span></button>
+    <div class="faq-answer">Speak to the event moderator or contact the TNS organising team. We expect all participants to follow our community standards, respect boundaries and help maintain a welcoming environment.</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="cta">
+ <div class="container">
+  <div class="eyebrow">YOUR NEIGHBOURHOOD IS WAITING</div>
+  <h2>Your Saturday. Your people.</h2>
+  <p>Find your chapter, meet new people and make room for more good experiences.</p>
+  <a href="#chapters" class="btn">FIND YOUR CHAPTER ↗</a>
+ </div>
 </section>
 
 <footer>
-  <h3>THE NEIGHBOURHOOD SOCIAL</h3>
-  <p>Your Saturday. Your people.</p>
-  <p>© 2026 The Neighbourhood Social</p>
+ <div class="container">
+  <div class="footer-grid">
+   <div>
+    <h3>THE NEIGHBOURHOOD SOCIAL.</h3>
+    <p>Your Saturday. Your people.<br>
+    A neighbourhood-based social club in Nairobi, Kenya.<br><br>
+    Meet · Play · Connect</p>
+   </div>
+   <div>
+    <h3>EXPLORE</h3>
+    <div class="footer-links">
+     <a href="#about">About TNS</a>
+     <a href="#activities">Activities</a>
+     <a href="#chapters">Find a chapter</a>
+     <a href="#faq">FAQs</a>
+    </div>
+   </div>
+   <div>
+    <h3>GET INVOLVED</h3>
+    <div class="footer-links">
+     <a href="#moderators">Become a moderator</a>
+     <a href="#chapters">Join the community</a>
+    </div>
+   </div>
+  </div>
+  <div class="footer-bottom">
+   <span>© 2026 The Neighbourhood Social. All rights reserved.</span>
+   <span>Made for community. Made for connection.</span>
+  </div>
+ </div>
 </footer>
 
+<script>
+function toggleMenu() {
+ document.getElementById('navLinks').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(link => {
+ link.addEventListener('click', () => {
+  document.getElementById('navLinks').classList.remove('open');
+ });
+});
+
+function filterChapters() {
+ const search = document.getElementById('chapterSearch').value.toLowerCase();
+ const chapters = document.querySelectorAll('.chapter');
+ let visible = 0;
+
+ chapters.forEach(chapter => {
+  const matches = chapter.innerText.toLowerCase().includes(search);
+  chapter.style.display = matches ? 'flex' : 'none';
+  if (matches) visible++;
+ });
+
+ document.getElementById('chapterCount').textContent =
+  visible + ' of 30 neighbourhoods';
+ document.getElementById('noResults').style.display =
+  visible === 0 ? 'block' : 'none';
+}
+
+function toggleFaq(button) {
+ const item = button.parentElement;
+ item.classList.toggle('active');
+}
+</script>
 </body>
 </html>
