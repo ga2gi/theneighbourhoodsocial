@@ -1,153 +1,1493 @@
-/* THE NEIGHBOURHOOD SOCIAL — EXPANDED COLOUR PALETTE */
 
-.nav-cta {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#173D32">
+<meta name="description" content="The Neighbourhood Social is a community for meeting new people, making friends and enjoying fun neighbourhood activities across Nairobi and Greater Nairobi.">
+<title>The Neighbourhood Social | Your Saturday. Your People.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green: #173D32;
+  --green-light: #285B49;
+  --cream: #F8F5ED;
+  --gold: #D9AA50;
+  --terracotta: #D99A86;
+  --sage: #A8B99A;
+  --eucalyptus: #DCE7E1;
+  --white: #FFFFFF;
+  --ink: #26352F;
+  --muted: #6C7972;
+  --border: #E7E5DC;
+  --shadow: 0 12px 35px rgba(23,61,50,.09);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+a { text-decoration: none; color: inherit; }
+
+button, input, select { font: inherit; }
+
+button { cursor: pointer; }
+
+.container {
+  width: min(1160px, 90%);
+  margin: auto;
+}
+
+.section { padding: 85px 0; }
+
+.section-label {
+  color: var(--green-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: .75rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  color: var(--green);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.section-intro {
+  color: var(--muted);
+  max-width: 650px;
+  margin-bottom: 35px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 23px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  font-weight: 700;
+  transition: .2s ease;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary {
+  background: var(--green);
+  color: white;
+}
+
+.btn-primary:hover { background: var(--green-light); }
+
+.btn-gold {
   background: var(--gold);
-  border-color: var(--gold);
   color: var(--green);
 }
 
-.nav-cta:hover {
-  background: #E8BE6D;
-  border-color: #E8BE6D;
+.btn-outline {
+  border-color: var(--green);
   color: var(--green);
 }
 
-.hero::after {
-  border-color: rgba(217,154,134,.38);
-  box-shadow:
-    0 0 0 45px rgba(168,185,154,.12),
-    0 0 0 90px rgba(220,231,225,.08);
+.btn-outline:hover {
+  background: var(--green);
+  color: white;
 }
 
-.about-card {
-  background: var(--green-light);
-  box-shadow: 12px 12px 0 var(--sage);
+/* NAVIGATION */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(248,245,237,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
 
-/* Activities */
-.activities {
+.nav {
+  min-height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--green);
+}
+
+.logo-symbol {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  background: var(--green);
+  color: var(--gold);
+  border-radius: 14px;
+  font-size: 1.35rem;
+}
+
+.logo-name {
+  font-weight: 800;
+  line-height: 1.15;
+  font-size: .98rem;
+}
+
+.logo-name small {
+  display: block;
+  font-size: .65rem;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  font-size: .88rem;
+  font-weight: 600;
+}
+
+.nav-links a:hover { color: var(--green-light); }
+
+.menu-toggle {
+  display: none;
+  border: none;
   background: var(--eucalyptus);
+  color: var(--green);
+  padding: 9px 12px;
+  border-radius: 9px;
+  font-size: 1.2rem;
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0 95px;
+  background:
+    radial-gradient(circle at 90% 15%, rgba(217,170,80,.22), transparent 25%),
+    radial-gradient(circle at 5% 90%, rgba(168,185,154,.35), transparent 28%),
+    var(--cream);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: var(--eucalyptus);
+  color: var(--green);
+  padding: 8px 15px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: .78rem;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.1rem, 7vw, 5.7rem);
+  line-height: 1.02;
+  color: var(--green);
+  margin-bottom: 22px;
+}
+
+.hero h1 span { color: #C47E66; }
+
+.hero-copy {
+  max-width: 530px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  margin-bottom: 28px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-note {
+  margin-top: 22px;
+  font-size: .83rem;
+  color: var(--muted);
+}
+
+.hero-art {
+  min-height: 390px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.art-circle {
+  width: min(350px, 90%);
+  aspect-ratio: 1;
+  background: var(--sage);
+  border-radius: 46% 54% 58% 42% / 45% 42% 58% 55%;
+  display: grid;
+  place-items: center;
+  font-size: 8rem;
+  transform: rotate(-7deg);
+}
+
+.art-card {
+  position: absolute;
+  background: white;
+  box-shadow: var(--shadow);
+  border-radius: 18px;
+  padding: 16px 20px;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.art-card.one { top: 35px; right: 0; transform: rotate(5deg); }
+.art-card.two { bottom: 40px; left: 0; background: var(--terracotta); transform: rotate(-5deg); }
+.art-card.three { bottom: 5px; right: 5px; background: var(--gold); transform: rotate(4deg); }
+
+/* INTRO STRIP */
+
+.quick-strip {
+  background: var(--green);
+  color: white;
+  padding: 24px 0;
+}
+
+.quick-items {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 16px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.quick-items span { color: var(--gold); }
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.about-panel {
+  background: var(--eucalyptus);
+  border-radius: 28px;
+  padding: 35px;
+}
+
+.about-panel h3 {
+  color: var(--green);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+.about-panel p { color: var(--muted); }
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.pillar {
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+  font-weight: 700;
+  color: var(--green);
+  font-size: .88rem;
+}
+
+.pillar span {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+
+/* ACTIVITIES */
+
+.activities-section { background: #F0EEE5; }
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
 }
 
 .activity-card {
-  background: var(--paper);
-  border-color: transparent;
-  transition: transform .2s, box-shadow .2s;
+  padding: 27px;
+  border-radius: 22px;
+  min-height: 220px;
+  transition: .2s;
 }
 
-.activity-card:hover {
+.activity-card:hover { transform: translateY(-5px); }
+
+.activity-card:nth-child(1) { background: var(--eucalyptus); }
+.activity-card:nth-child(2) { background: #F3E2C2; }
+.activity-card:nth-child(3) { background: #F1DCD5; }
+.activity-card:nth-child(4) { background: #E3E9D9; }
+.activity-card:nth-child(5) { background: #E9E0D1; }
+.activity-card:nth-child(6) { background: #E7DDE8; }
+
+.activity-icon { font-size: 2.1rem; margin-bottom: 12px; }
+
+.activity-card h3 {
+  color: var(--green);
+  margin-bottom: 8px;
+}
+
+.activity-card p {
+  color: #58675F;
+  font-size: .9rem;
+}
+
+/* HOW IT WORKS */
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 18px;
+}
+
+.step {
+  background: white;
+  padding: 25px;
+  border-radius: 19px;
+  box-shadow: var(--shadow);
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: var(--gold);
+  border-radius: 50%;
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 16px;
+}
+
+.step h3 { color: var(--green); margin-bottom: 8px; }
+.step p { color: var(--muted); font-size: .88rem; }
+
+/* LOCATIONS */
+
+.locations-section { background: #F0EEE5; }
+
+.location-tools {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.location-tools input,
+.location-tools select {
+  width: 100%;
+  padding: 15px 17px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: white;
+  outline: none;
+  color: var(--ink);
+}
+
+.location-tools input:focus,
+.location-tools select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(23,61,50,.08);
+}
+
+.location-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 23px;
+}
+
+.location-count {
+  color: var(--green);
+  font-weight: 800;
+}
+
+.location-note {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 17px;
+}
+
+.location-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 19px;
+  padding: 21px;
+  transition: .2s;
+}
+
+.location-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(23,61,50,.08);
-}
-
-.activity-card:nth-child(3n + 1) {
-  background: #EEF2E9;
-  border-bottom: 4px solid var(--sage);
-}
-
-.activity-card:nth-child(3n + 2) {
-  background: #F9EEE9;
-  border-bottom: 4px solid var(--terracotta);
-}
-
-.activity-card:nth-child(3n) {
-  background: #F7F0DE;
-  border-bottom: 4px solid var(--gold);
-}
-
-/* How it works */
-.step:nth-child(2) {
-  border-top-color: var(--terracotta);
-}
-
-.step:nth-child(3) {
-  border-top-color: var(--sage);
-}
-
-.step:nth-child(2) .step-number {
-  color: var(--terracotta);
-}
-
-.step:nth-child(3) .step-number {
-  color: #789477;
-}
-
-/* Neighbourhood directory */
-.chapters {
-  background: #F2F5EF;
-}
-
-.chapter {
-  background: var(--paper);
-  border-color: #DCE5DA;
-  transition: transform .2s, border-color .2s;
-}
-
-.chapter:hover {
-  transform: translateY(-2px);
+  box-shadow: var(--shadow);
   border-color: var(--sage);
 }
 
-.chapter:nth-child(4n + 1) .status {
-  color: #49644B;
-  background: #E5EDE1;
+.location-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
-.chapter:nth-child(4n + 2) .status {
-  color: #875342;
-  background: #F6E5DE;
+.location-number {
+  color: #A0AAA3;
+  font-size: .75rem;
+  font-weight: 800;
 }
 
-.chapter:nth-child(4n + 3) .status {
-  color: #806126;
-  background: #F4E8C9;
+.location-status {
+  display: inline-block;
+  background: #E3F0E4;
+  color: #28623B;
+  padding: 5px 9px;
+  border-radius: 50px;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .4px;
 }
 
-.chapter:nth-child(4n) .status {
-  color: #49645C;
-  background: var(--eucalyptus);
+.location-card h3 {
+  color: var(--green);
+  font-size: 1.05rem;
+  margin-bottom: 10px;
 }
 
-/* Moderator recruitment */
-.moderator-panel {
-  background: #285746;
-  box-shadow: 12px 12px 0 rgba(168,185,154,.28);
+.covered-label {
+  color: var(--muted);
+  font-size: .73rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  margin-bottom: 7px;
 }
 
-/* FAQs */
-.faq summary:hover {
-  color: #9A6657;
+.covered-areas {
+  color: #59665F;
+  font-size: .86rem;
+  line-height: 1.65;
 }
 
-summary::after {
-  color: var(--terracotta);
+.location-zone {
+  display: inline-block;
+  margin-top: 14px;
+  background: var(--cream);
+  color: var(--green);
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: .72rem;
+  font-weight: 700;
 }
 
-/* Final call to action */
-.final-cta {
-  background: #F3E6DF;
+.no-results {
+  display: none;
+  padding: 30px;
+  text-align: center;
+  color: var(--muted);
+  background: white;
+  border-radius: 16px;
+  margin-top: 15px;
 }
 
-.final-cta .eyebrow {
-  color: #A86F5D;
+/* WELLBEING */
+
+.wellbeing {
+  background: var(--green);
+  color: white;
+  position: relative;
+  overflow: hidden;
 }
 
-.final-cta .button {
+.wellbeing .section-heading { color: white; }
+.wellbeing .section-label { color: var(--gold); }
+.wellbeing .section-intro { color: #D8E3DC; }
+
+.wellbeing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.wellbeing-art {
+  background: var(--sage);
+  color: var(--green);
+  padding: 40px;
+  border-radius: 28px;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.wellbeing-points {
+  display: grid;
+  gap: 16px;
+}
+
+.wellbeing-point {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.wellbeing-point span { font-size: 1.5rem; }
+.wellbeing-point h3 { color: var(--gold); font-size: 1rem; }
+.wellbeing-point p { color: #D8E3DC; font-size: .88rem; }
+
+/* JOIN */
+
+.join-section {
   background: var(--terracotta);
-  border-color: var(--terracotta);
-  color: #2D3028;
+  text-align: center;
 }
 
-.final-cta .button:hover {
-  background: #E5AA98;
-  border-color: #E5AA98;
+.join-section h2 {
+  font-family: 'Playfair Display',serif;
+  color: var(--green);
+  font-size: clamp(2.1rem,4vw,3.5rem);
+  margin-bottom: 15px;
 }
 
-/* Footer */
-footer h3 {
-  color: var(--sage);
+.join-section p {
+  max-width: 620px;
+  margin: 0 auto 25px;
+  color: #4E5A52;
 }
 
-footer a:hover {
-  color: var(--terracotta);
+/* MODERATORS */
+
+.moderator-box {
+  background: var(--eucalyptus);
+  border-radius: 26px;
+  padding: 45px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 35px;
 }
+
+.moderator-box h2 {
+  font-family: 'Playfair Display',serif;
+  color: var(--green);
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.moderator-box p { color: var(--muted); }
+
+/* FAQ */
+
+.faq-list {
+  display: grid;
+  gap: 12px;
+  max-width: 850px;
+}
+
+details {
+  background: white;
+  padding: 19px 22px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+summary {
+  color: var(--green);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+details p {
+  color: var(--muted);
+  margin-top: 12px;
+  font-size: .92rem;
+}
+
+/* FOOTER */
+
+footer {
+  background: #102D25;
+  color: white;
+  padding: 55px 0 22px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 35px;
+  margin-bottom: 35px;
+}
+
+footer h3 { color: var(--gold); margin-bottom: 13px; }
+footer p, footer a { color: #D2DED6; font-size: .88rem; }
+footer a { display: block; margin-bottom: 8px; }
+footer a:hover { color: var(--gold); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #B9C9BF;
+  font-size: .8rem;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+  .hero-grid, .about-grid, .wellbeing-grid { grid-template-columns: 1fr; }
+  .hero-art { min-height: 320px; }
+  .activity-grid, .location-grid { grid-template-columns: repeat(2,1fr); }
+  .steps-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+@media(max-width:650px) {
+  .nav { min-height: 68px; }
+  .menu-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    padding: 22px 5%;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links.active { display: flex; }
+  .hero { padding: 70px 0; }
+  .hero-art { min-height: 280px; }
+  .art-circle { width: 245px; font-size: 6rem; }
+  .art-card { font-size: .8rem; padding: 12px; }
+  .section { padding: 65px 0; }
+  .activity-grid, .location-grid, .steps-grid { grid-template-columns: 1fr; }
+  .location-tools { grid-template-columns: 1fr; }
+  .moderator-box { grid-template-columns: 1fr; padding: 28px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .quick-items { font-size: .83rem; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">
+      <div class="logo-symbol">✳</div>
+      <div class="logo-name">
+        THE NEIGHBOURHOOD SOCIAL
+        <small>MEET · PLAY · CONNECT</small>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#activities">Activities</a>
+      <a href="#how">How it works</a>
+      <a href="#locations">Locations</a>
+      <a href="#wellbeing">Wellbeing</a>
+      <a href="#faq">FAQs</a>
+      <a href="#locations" class="btn btn-primary">Find your chapter</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-tag">🌿 YOUR LOCAL SOCIAL CLUB</span>
+      <h1>Your Saturday.<br><span>Your people.</span></h1>
+      <p class="hero-copy">
+        A little less staying indoors. A little more meeting people,
+        discovering places and making memories.
+        Find your neighbourhood chapter and be part of something fun.
+      </p>
+      <div class="hero-buttons">
+        <a href="#locations" class="btn btn-primary">Find your neighbourhood →</a>
+        <a href="#about" class="btn btn-outline">Get to know us</a>
+      </div>
+      <p class="hero-note">📍 Nairobi & Greater Nairobi · Adults 18+</p>
+    </div>
+
+    <div class="hero-art">
+      <div class="art-circle">🧺</div>
+      <div class="art-card one">Meet new people ✨</div>
+      <div class="art-card two">Make memories 🌸</div>
+      <div class="art-card three">Have fun! ☀️</div>
+    </div>
+  </div>
+</section>
+
+<div class="quick-strip">
+  <div class="container quick-items">
+    <div><span>✳</span> Meet</div>
+    <div><span>✳</span> Play</div>
+    <div><span>✳</span> Connect</div>
+    <div><span>✳</span> Explore</div>
+    <div><span>✳</span> Belong</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="section-label">A community, not just an event</div>
+      <h2 class="section-heading">Good people. Shared experiences. Real connections.</h2>
+      <p class="section-intro">
+        The Neighbourhood Social is a community-based social club
+        bringing people together through fun, accessible and meaningful
+        activities in their neighbourhoods.
+      </p>
+      <p>
+        We believe making friends and building community shouldn't
+        be complicated. You shouldn't have to travel across the city
+        or wait for a special occasion to meet people.
+      </p>
+      <br>
+      <p>
+        Through local chapters, rotating Saturday activities and
+        shared experiences, we're creating more opportunities for
+        people to connect with the places and people around them.
+      </p>
+    </div>
+
+    <div class="about-panel">
+      <h3>More than just hanging out.</h3>
+      <p>We're building neighbourhood communities around five ideas:</p>
+      <div class="pillars">
+        <div class="pillar"><span>🤝</span>Social connection</div>
+        <div class="pillar"><span>🌱</span>Everyday wellbeing</div>
+        <div class="pillar"><span>🚶</span>Active living</div>
+        <div class="pillar"><span>🎨</span>Creativity & discovery</div>
+        <div class="pillar"><span>💛</span>Community & purpose</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="section activities-section" id="activities">
+  <div class="container">
+    <div class="section-label">Something for everyone</div>
+    <h2 class="section-heading">Every Saturday can be different.</h2>
+    <p class="section-intro">
+      We rotate activities so there's always something new to try.
+      Activities depend on the chapter, member interests and local opportunities.
+    </p>
+
+    <div class="activity-grid">
+      <article class="activity-card">
+        <div class="activity-icon">🚶</div>
+        <h3>Walks & Outdoor Adventures</h3>
+        <p>Neighbourhood walks, nature trails, beginner-friendly runs and outdoor exploration.</p>
+      </article>
+
+      <article class="activity-card">
+        <div class="activity-icon">🎲</div>
+        <h3>Game Days</h3>
+        <p>Board games, trivia, puzzles, friendly competitions and game nights.</p>
+      </article>
+
+      <article class="activity-card">
+        <div class="activity-icon">☕</div>
+        <h3>Social Hangouts</h3>
+        <p>Café meetups, picnics, brunches, conversations and opportunities to make new friends.</p>
+      </article>
+
+      <article class="activity-card">
+        <div class="activity-icon">🎨</div>
+        <h3>Creative Experiences</h3>
+        <p>Painting, crafts, journaling, photography and trying new hobbies together.</p>
+      </article>
+
+      <article class="activity-card">
+        <div class="activity-icon">🌍</div>
+        <h3>Community Action</h3>
+        <p>Neighbourhood clean-ups, volunteering and small community projects.</p>
+      </article>
+
+      <article class="activity-card">
+        <div class="activity-icon">🎉</div>
+        <h3>Special Socials</h3>
+        <p>Theme days, celebrations, local discoveries and occasional special experiences.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="section-label">Simple as that</div>
+    <h2 class="section-heading">How it works</h2>
+    <p class="section-intro">Find your people and start showing up.</p>
+
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Find your chapter</h3>
+        <p>Choose the neighbourhood closest to where you live, work, study or spend time.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Join the community</h3>
+        <p>Connect with your local chapter and get updates about upcoming activities.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Pick an activity</h3>
+        <p>Explore the Saturday plans and choose experiences you'd enjoy.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Show up & connect</h3>
+        <p>Meet people, try new things and become part of your neighbourhood community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section class="section locations-section" id="locations">
+  <div class="container">
+    <div class="section-label">Find your people nearby</div>
+    <h2 class="section-heading">40 neighbourhood chapters.</h2>
+    <p class="section-intro">
+      From Westlands to Rongai, Ruaka to Athi River.
+      Find your local community and discover the areas covered by each chapter.
+    </p>
+
+    <div class="location-tools">
+      <input
+        type="search"
+        id="locationSearch"
+        placeholder="🔍 Search a neighbourhood, estate or road..."
+        aria-label="Search neighbourhoods"
+      >
+
+      <select id="zoneFilter" aria-label="Filter by area">
+        <option value="all">All areas</option>
+        <option value="Westlands & Western">Westlands & Western</option>
+        <option value="Northern Corridor">Northern Corridor</option>
+        <option value="Central Nairobi">Central Nairobi</option>
+        <option value="Ngong Road & Southwest">Ngong Road & Southwest</option>
+        <option value="Southern Nairobi">Southern Nairobi</option>
+        <option value="Mombasa Road">Mombasa Road</option>
+        <option value="Eastern Nairobi">Eastern Nairobi</option>
+      </select>
+    </div>
+
+    <div class="location-summary">
+      <div class="location-count" id="locationCount">40 chapters available</div>
+      <div class="location-note">All chapters are open for membership · 18+</div>
+    </div>
+
+    <div class="location-grid" id="locationGrid"></div>
+
+    <div class="no-results" id="noResults">
+      <h3>No matching neighbourhood found.</h3>
+      <p>Try another search or check a nearby chapter.</p>
+    </div>
+
+    <p class="location-note" style="margin-top:25px;">
+      <strong>Choosing your chapter:</strong> Select the chapter closest to you.
+      The areas listed are community catchments, not official administrative boundaries.
+      If your exact estate isn't listed, look for the nearest chapter.
+    </p>
+  </div>
+</section>
+
+<!-- WELLBEING -->
+<section class="section wellbeing" id="wellbeing">
+  <div class="container wellbeing-grid">
+    <div>
+      <div class="section-label">Community is part of wellbeing</div>
+      <h2 class="section-heading">A little more connection. A little more life.</h2>
+      <p class="section-intro">
+        We believe that everyday social connection matters.
+        Having people to meet, places to explore and activities to look forward
+        to can make everyday life more meaningful.
+      </p>
+
+      <div class="wellbeing-points">
+        <div class="wellbeing-point">
+          <span>💛</span>
+          <div>
+            <h3>Belonging & connection</h3>
+            <p>Meet people, build friendships and feel part of a community.</p>
+          </div>
+        </div>
+
+        <div class="wellbeing-point">
+          <span>🌿</span>
+          <div>
+            <h3>Move & unwind</h3>
+            <p>Enjoy outdoor activities, movement and time away from everyday routines.</p>
+          </div>
+        </div>
+
+        <div class="wellbeing-point">
+          <span>🎨</span>
+          <div>
+            <h3>Creative resets</h3>
+            <p>Try hobbies, express yourself and discover new interests.</p>
+          </div>
+        </div>
+
+        <div class="wellbeing-point">
+          <span>🗣️</span>
+          <div>
+            <h3>Meaningful conversations</h3>
+            <p>Create room for conversations about everyday experiences and life.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wellbeing-art">
+      🌼
+      <h3 style="font-family:'Playfair Display',serif;font-size:2rem;margin-top:15px;">
+        The Wellbeing Social
+      </h3>
+      <p style="font-size:1rem;margin-top:10px;">
+        A Saturday to reconnect.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="section join-section" id="join">
+  <div class="container">
+    <h2>Your neighbourhood is waiting.</h2>
+    <p>
+      Find your chapter, meet new people and become part of a community
+      that makes weekends a little more interesting.
+    </p>
+    <a href="#locations" class="btn btn-primary">Explore the 40 chapters →</a>
+  </div>
+</section>
+
+<!-- MODERATORS -->
+<section class="section" id="moderators">
+  <div class="container">
+    <div class="moderator-box">
+      <div>
+        <div class="section-label">Help build your local community</div>
+        <h2>Become a Chapter Moderator.</h2>
+        <p>
+          Love bringing people together? We're looking for enthusiastic,
+          responsible community builders to help coordinate local chapters,
+          welcome members and organise fun neighbourhood experiences.
+        </p>
+        <p style="margin-top:12px;">
+          Moderators help create inclusive, welcoming and well-organised
+          spaces for members. Compensation is linked to eligible activity
+          ticket revenue and subject to a separate written agreement.
+        </p>
+      </div>
+
+      <a
+        href="https://forms.gle/SQcUCrnQPefNUpNM6"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-primary"
+      >Apply to be a moderator →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-label">Good to know</div>
+    <h2 class="section-heading">Frequently asked questions</h2>
+
+    <div class="faq-list">
+      <details>
+        <summary>Who can join The Neighbourhood Social?</summary>
+        <p>Anyone aged 18 and above who is interested in meeting people, exploring their neighbourhood and participating in community activities.</p>
+      </details>
+
+      <details>
+        <summary>Do I have to live in the neighbourhood I join?</summary>
+        <p>No. You can join the chapter closest to where you live, work, study or regularly spend time.</p>
+      </details>
+
+      <details>
+        <summary>Are all 40 chapters open?</summary>
+        <p>Yes. All 40 chapters are open for membership. Each chapter covers the neighbourhoods and areas listed in the directory.</p>
+      </details>
+
+      <details>
+        <summary>How do I get the WhatsApp group invitation?</summary>
+        <p>Contact The Neighbourhood Social through its official social channels to request the invitation for your chosen chapter. Official chapter invitation links can be added to this directory as they are issued.</p>
+      </details>
+
+      <details>
+        <summary>Do I have to pay to join?</summary>
+        <p>Joining a neighbourhood community is free. Individual activities may have a ticket fee. Any costs for food, drinks, transport or materials will be communicated before an activity.</p>
+      </details>
+
+      <details>
+        <summary>What happens every Saturday?</summary>
+        <p>Activities rotate. They may include walks, games, café meetups, picnics, clean-ups, creative workshops and other social experiences.</p>
+      </details>
+
+      <details>
+        <summary>Can I attend activities in another chapter?</summary>
+        <p>Yes. You can explore activities hosted by other chapters, subject to availability and the activity's arrangements.</p>
+      </details>
+
+      <details>
+        <summary>Is The Neighbourhood Social a mental health organisation?</summary>
+        <p>No. We are a social community that supports everyday wellbeing through connection, belonging and shared experiences. We are not a therapy or mental health service.</p>
+      </details>
+
+      <details>
+        <summary>How can I become a moderator?</summary>
+        <p>You can apply through our <a href="https://forms.gle/SQcUCrnQPefNUpNM6" target="_blank" rel="noopener"><strong>Chapter Moderator Application Form</strong></a>.</p>
+      </details>
+
+      <details>
+        <summary>How do you keep the community safe?</summary>
+        <p>We expect members to respect one another, follow community guidelines and respect privacy. Members should only share photos with consent. WhatsApp group participants may be able to see other members' phone numbers and profile information, so please consider this before joining.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>THE NEIGHBOURHOOD SOCIAL ✳</h3>
+        <p>
+          Your Saturday. Your people.<br>
+          Building neighbourhood communities through connection,
+          fun and shared experiences.
+        </p>
+        <p style="margin-top:15px;">📍 Nairobi & Greater Nairobi</p>
+        <p>For adults aged 18+</p>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <a href="#about">About us</a>
+        <a href="#activities">Activities</a>
+        <a href="#locations">Find your chapter</a>
+        <a href="#wellbeing">Wellbeing</a>
+        <a href="#faq">FAQs</a>
+      </div>
+
+      <div>
+        <h3>Get involved</h3>
+        <a href="#locations">Join a neighbourhood chapter</a>
+        <a href="#moderators">Become a moderator</a>
+        <a href="https://forms.gle/SQcUCrnQPefNUpNM6" target="_blank" rel="noopener">Moderator application</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> The Neighbourhood Social. All rights reserved.</span>
+      <span>Meet · Play · Connect 🌿</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* THE 40 NEIGHBOURHOOD CHAPTERS */
+
+const chapters = [
+  {
+    number: 1,
+    name: "Westlands & Parklands",
+    zone: "Westlands & Western",
+    areas: ["Westlands", "Parklands", "Highridge", "City Park"]
+  },
+  {
+    number: 2,
+    name: "Spring Valley & Loresho",
+    zone: "Westlands & Western",
+    areas: ["Spring Valley", "Loresho", "Kyuna"]
+  },
+  {
+    number: 3,
+    name: "Waiyaki Way",
+    zone: "Westlands & Western",
+    areas: ["Kangemi", "Mountain View", "Uthiru"]
+  },
+  {
+    number: 4,
+    name: "Kinoo & Kikuyu",
+    zone: "Westlands & Western",
+    areas: ["Kinoo", "Regen", "Kikuyu", "Kabete"]
+  },
+  {
+    number: 5,
+    name: "Gigiri & Runda",
+    zone: "Northern Corridor",
+    areas: ["Gigiri", "Runda", "Rosslyn", "Muthaiga"]
+  },
+  {
+    number: 6,
+    name: "Ruaka & Limuru Road",
+    zone: "Northern Corridor",
+    areas: ["Ruaka", "Two Rivers", "Banana Hill"]
+  },
+  {
+    number: 7,
+    name: "Kiambu Road",
+    zone: "Northern Corridor",
+    areas: ["Ridgeways", "Garden Estate", "Thindigua", "Kiambu"]
+  },
+  {
+    number: 8,
+    name: "Thika Road — Roysambu",
+    zone: "Northern Corridor",
+    areas: ["Roysambu", "Mirema", "Garden City"]
+  },
+  {
+    number: 9,
+    name: "Kasarani & Zimmerman",
+    zone: "Northern Corridor",
+    areas: ["Kasarani", "Zimmerman", "Seasons", "Clay City"]
+  },
+  {
+    number: 10,
+    name: "Kahawa & Githurai",
+    zone: "Northern Corridor",
+    areas: ["Kahawa West", "Kahawa Sukari", "Kahawa Wendani", "Githurai"]
+  },
+  {
+    number: 11,
+    name: "Ruiru & Eastern Bypass",
+    zone: "Northern Corridor",
+    areas: ["Ruiru", "Kamakis", "Membley"]
+  },
+  {
+    number: 12,
+    name: "CBD & City Centre",
+    zone: "Central Nairobi",
+    areas: ["CBD", "Kenyatta Avenue", "Tom Mboya Street"]
+  },
+  {
+    number: 13,
+    name: "Ngara & Pangani",
+    zone: "Central Nairobi",
+    areas: ["Ngara", "Pangani", "Park Road"]
+  },
+  {
+    number: 14,
+    name: "Eastleigh & Mathare",
+    zone: "Central Nairobi",
+    areas: ["Eastleigh", "Mathare", "Huruma"]
+  },
+  {
+    number: 15,
+    name: "Kileleshwa & Riverside",
+    zone: "Central Nairobi",
+    areas: ["Kileleshwa", "Riverside", "Muthangari"]
+  },
+  {
+    number: 16,
+    name: "Lavington & Valley Arcade",
+    zone: "Central Nairobi",
+    areas: ["Lavington", "Valley Arcade", "James Gichuru Road"]
+  },
+  {
+    number: 17,
+    name: "Kilimani & Hurlingham",
+    zone: "Central Nairobi",
+    areas: ["Kilimani", "Hurlingham", "Yaya", "Argwings Kodhek Road"]
+  },
+  {
+    number: 18,
+    name: "Upper Hill & Community",
+    zone: "Central Nairobi",
+    areas: ["Upper Hill", "Milimani", "Hospital Road"]
+  },
+  {
+    number: 19,
+    name: "Adams Arcade & Jamhuri",
+    zone: "Ngong Road & Southwest",
+    areas: ["Adams Arcade", "Jamhuri", "Woodley"]
+  },
+  {
+    number: 20,
+    name: "Junction & Riara Road",
+    zone: "Ngong Road & Southwest",
+    areas: ["The Junction", "Riara Road", "Ngong Road junction areas"]
+  },
+  {
+    number: 21,
+    name: "Dagoretti & Kawangware",
+    zone: "Ngong Road & Southwest",
+    areas: ["Dagoretti Corner", "Kawangware", "Riruta", "Satellite"]
+  },
+  {
+    number: 22,
+    name: "Kibera & Olympic",
+    zone: "Ngong Road & Southwest",
+    areas: ["Kibera", "Olympic", "Laini Saba"]
+  },
+  {
+    number: 23,
+    name: "Karen & Lang'ata",
+    zone: "Ngong Road & Southwest",
+    areas: ["Karen", "Lang'ata", "Hardy", "Bomas"]
+  },
+  {
+    number: 24,
+    name: "Rongai & Kiserian",
+    zone: "Ngong Road & Southwest",
+    areas: ["Ongata Rongai", "Kiserian", "Magadi Road"]
+  },
+  {
+    number: 25,
+    name: "Ngong & Ngong Hills",
+    zone: "Ngong Road & Southwest",
+    areas: ["Ngong Town", "Neighbourhoods around Ngong Hills"]
+  },
+  {
+    number: 26,
+    name: "Nairobi West & Madaraka",
+    zone: "Southern Nairobi",
+    areas: ["Nairobi West", "Madaraka", "Mbagathi Way"]
+  },
+  {
+    number: 27,
+    name: "South B & South C",
+    zone: "Southern Nairobi",
+    areas: ["South B", "South C", "Bellevue"]
+  },
+  {
+    number: 28,
+    name: "Industrial Area & Enterprise Road",
+    zone: "Southern Nairobi",
+    areas: ["Industrial Area", "Enterprise Road", "Likoni Road"]
+  },
+  {
+    number: 29,
+    name: "Imara Daima & Cabanas",
+    zone: "Mombasa Road",
+    areas: ["Imara Daima", "Cabanas", "Mombasa Road"]
+  },
+  {
+    number: 30,
+    name: "Embakasi & Pipeline",
+    zone: "Mombasa Road",
+    areas: ["Embakasi", "Pipeline", "Fedha", "Tassia"]
+  },
+  {
+    number: 31,
+    name: "Syokimau & Mlolongo",
+    zone: "Mombasa Road",
+    areas: ["Syokimau", "Mlolongo"]
+  },
+  {
+    number: 32,
+    name: "Athi River",
+    zone: "Mombasa Road",
+    areas: ["Athi River", "Nearby residential areas"]
+  },
+  {
+    number: 33,
+    name: "Buru Buru & Jogoo Road",
+    zone: "Eastern Nairobi",
+    areas: ["Buru Buru", "Maringo", "Jericho", "Kaloleni"]
+  },
+  {
+    number: 34,
+    name: "Donholm & Tena",
+    zone: "Eastern Nairobi",
+    areas: ["Donholm", "Tena", "Savannah"]
+  },
+  {
+    number: 35,
+    name: "Umoja & Komarock",
+    zone: "Eastern Nairobi",
+    areas: ["Umoja", "Komarock", "Saika"]
+  },
+  {
+    number: 36,
+    name: "Kayole & Njiru",
+    zone: "Eastern Nairobi",
+    areas: ["Kayole", "Njiru", "Ruai"]
+  },
+  {
+    number: 37,
+    name: "Kariobangi & Dandora",
+    zone: "Eastern Nairobi",
+    areas: ["Kariobangi", "Dandora", "Korogocho"]
+  },
+  {
+    number: 38,
+    name: "Umoja Inner & Makadara",
+    zone: "Eastern Nairobi",
+    areas: ["Makadara", "Bahati", "Harambee", "Ofafa Jericho"]
+  },
+  {
+    number: 39,
+    name: "Juja Road & Pumwani",
+    zone: "Eastern Nairobi",
+    areas: ["Pumwani", "Shauri Moyo", "Gikomba"]
+  },
+  {
+    number: 40,
+    name: "Utawala & Kangundo Road",
+    zone: "Eastern Nairobi",
+    areas: ["Utawala", "Mihang'o", "Kangundo Road corridor"]
+  }
+];
+
+/* DISPLAY CHAPTER CARDS */
+
+const locationGrid = document.getElementById("locationGrid");
+const locationSearch = document.getElementById("locationSearch");
+const zoneFilter = document.getElementById("zoneFilter");
+const locationCount = document.getElementById("locationCount");
+const noResults = document.getElementById("noResults");
+
+function renderChapters() {
+  const query = locationSearch.value.toLowerCase().trim();
+  const selectedZone = zoneFilter.value;
+
+  const filtered = chapters.filter(chapter => {
+    const searchable = [
+      chapter.name,
+      chapter.zone,
+      ...chapter.areas
+    ].join(" ").toLowerCase();
+
+    const matchesSearch = searchable.includes(query);
+    const matchesZone =
+      selectedZone === "all" || chapter.zone === selectedZone;
+
+    return matchesSearch && matchesZone;
+  });
+
+  locationGrid.innerHTML = filtered.map(chapter => `
+    <article class="location-card">
+      <div class="location-card-top">
+        <span class="location-number">
+          CHAPTER ${String(chapter.number).padStart(2, "0")}
+        </span>
+        <span class="location-status">● OPEN</span>
+      </div>
+
+      <h3>${chapter.name}</h3>
+
+      <div class="covered-label">Areas covered</div>
+      <p class="covered-areas">${chapter.areas.join(" · ")}</p>
+
+      <span class="location-zone">${chapter.zone}</span>
+    </article>
+  `).join("");
+
+  locationCount.textContent =
+    `${filtered.length} of ${chapters.length} chapters available`;
+
+  noResults.style.display = filtered.length ? "none" : "block";
+}
+
+locationSearch.addEventListener("input", renderChapters);
+zoneFilter.addEventListener("change", renderChapters);
+
+/* MOBILE MENU */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  menuToggle.textContent =
+    navLinks.classList.contains("active") ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menuToggle.textContent = "☰";
+  });
+});
+
+/* FOOTER YEAR */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+/* INITIAL RENDER */
+
+renderChapters();
+</script>
+
+</body>
+</html>
